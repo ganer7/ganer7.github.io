@@ -83,7 +83,7 @@
     <div>
       <h2 class="title"><a href="/2021/04/06/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/">mysql数据库学习</a></h2>
       <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2021-04-06</span>
-      <p><h1 id="等保2-0"><a href="#等保2-0" class="headerlink" title="等保2.0"></a>等保2.0</h1><h2 id="身份鉴别"><a href="#身份鉴别" class="headerlink" title="身份鉴别"></a>身份鉴别</h2><h4 id="安全要求："><a href="#安全要求：" class="headerlink" title="安全要求："></a>安全要求：</h4><p>a)应对登录的用户进行身份标识和鉴别，身份标识具有唯一性，身份鉴别信息具有复杂度要求并定期更换</p>
+      <p><h1 id="等保2-0"><a href="#等保2-0" class="headerlink" title="等保2.0"></a>等保2.0</h1><h2 id="身份鉴别"><a href="#身份鉴别" class="headerlink" title="身份鉴别"></a>身份鉴别</h2><h4 id="安全要求："><a href="#安全要求：" class="headerlink" title="安全要求："></a>安全要求：</h4><p><strong>a)应对登录的用户进行身份标识和鉴别，身份标识具有唯一性，身份鉴别信息具有复杂度要求并定期更换</strong></p>
 <h4 id="测评方法："><a href="#测评方法：" class="headerlink" title="测评方法："></a>测评方法：</h4><p>1)尝试登录数据库，执行mysql -u root -p查看是否提示输入口令鉴别用户身份<br>    2)使用如下命令查询账号</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user, host FROM mysql.user  </span><br></pre></td></tr></table></figure>
 
@@ -96,8 +96,15 @@
 <p>4)执行如下语句查看用户口今复杂度相关配置:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">show variables like &#39;validate%&#39;; </span><br><span class="line">#或</span><br><span class="line">show VARIABLES like &quot;%password&quot;;</span><br></pre></td></tr></table></figure>
 
+<p><strong>b)应具有登录失败处理功能，应配置并启用结束会话、限制非法登录次数和当登录连接超时自动退出等相关措施</strong></p>
+<p>2）执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">show variables like %max_connect_errors%</span><br><span class="line">#或核查my.cnf文件，应设置如下参数：</span><br><span class="line">max_connect_errors&#x3D;100</span><br><span class="line">3) show variables like ”%timeout%“,查看返回值</span><br></pre></td></tr></table></figure>
+
+
+
+<p>1)MySQL数据库采用第三方管理软件，且第三方管理软件设置登录失败锁定次数<br>2)3)数据库管理系统本地配置了参数max_connect_errors= 100, Wait_timeout = 28800，如果mysql服务器连续接收到了来自于同一个主机的请求，且这些连续的请求全部都没有成功的建立连接就被断开了，当这些连续的请求的累计值大于max_connect_errors的设定值时，mysql 服务器就会阻止这台主机后续的所有请求。Wait_ timeout: 一个连接connection空闲超过8个小时(默认值28800秒)，MySQL 就会自动断开这个连接</p>
 <p>一.查看数据库版本及详细信息<br>登录到mysql数据库中查看<br>命令 : status;</p>
-<p><img src="/.io//image-20210406172538812.png" alt="image-20210406172538812"></p>
+<p><img src="../images/image-20210406174827229.png" alt="image-20210406174827229"></p>
 </p>
       <div class="post-button"><a class="btn" href="/2021/04/06/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>Read More</a></div>
     </div>
