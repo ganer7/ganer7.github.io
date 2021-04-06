@@ -80,8 +80,21 @@
   <div class="lx-post">
     <div class="lx-entry padding">
       <div>
-        <p>一.查看数据库版本及详细信息<br>登录到mysql数据库中查看<br>命令 : status;</p>
-<p><img src="%5Cimages%5Cpasted-0.png%5C" alt="upload successful"></p>
+        <h1 id="等保2-0"><a href="#等保2-0" class="headerlink" title="等保2.0"></a>等保2.0</h1><h2 id="身份鉴别"><a href="#身份鉴别" class="headerlink" title="身份鉴别"></a>身份鉴别</h2><h4 id="安全要求："><a href="#安全要求：" class="headerlink" title="安全要求："></a>安全要求：</h4><p>a)应对登录的用户进行身份标识和鉴别，身份标识具有唯一性，身份鉴别信息具有复杂度要求并定期更换</p>
+<h4 id="测评方法："><a href="#测评方法：" class="headerlink" title="测评方法："></a>测评方法：</h4><p>1)尝试登录数据库，执行mysql -u root -p查看是否提示输入口令鉴别用户身份<br>    2)使用如下命令查询账号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user, host FROM mysql.user  </span><br></pre></td></tr></table></figure>
+
+<p>结果输出用户列表，查者是否存在相同用户名 ；</p>
+<p>预期结果：2)查询user表，不存在相同的用户名</p>
+<pre><code> 3)执行如下语句查询是否在空口令用：
+</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from mysql.user where length(password)&#x3D; 0 or password is null</span><br><span class="line">#输出结果是否为空</span><br></pre></td></tr></table></figure>
+
+<p>4)执行如下语句查看用户口今复杂度相关配置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">show variables like &#39;validate%&#39;; </span><br><span class="line">#或</span><br><span class="line">show VARIABLES like &quot;%password&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>一.查看数据库版本及详细信息<br>登录到mysql数据库中查看<br>命令 : status;</p>
+<p><img src="/.io//image-20210406172538812.png" alt="image-20210406172538812"></p>
 
       </div>
     </div>
