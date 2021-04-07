@@ -81,44 +81,6 @@
 
   <div class="lx-entry padding">
     <div>
-      <h2 class="title"><a href="/2021/04/07/Apache%E7%B3%BB%E5%88%97%E6%BC%8F%E6%B4%9E/">Apache系列漏洞</a></h2>
-      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2021-04-07</span>
-      <p><p>Apache 系列漏洞<br>2017年6月19日，Apache httpd被曝出多个安全漏洞，漏洞编号为:CVE-2017-3167, CVE-2017-3169, CVE-2017-7659, CVE-2017-7668, CVE-2017-7679，安全风险较高。请及时通知各系统管理员查看相关漏洞情况，并进行相关处理。具体如下：</p>
-<p>漏洞编号:</p>
-<p>CVE-2017-3167</p>
-<p>CVE-2017-3169</p>
-<p>CVE-2017-7659</p>
-<p>CVE-2017-7668</p>
-<p>CVE-2017-7679</p>
-<p>漏洞名称:</p>
-<p>Apache httpd 多个安全漏洞</p>
-<p>官方评级:</p>
-<p>高危</p>
-<p>漏洞描述:</p>
-<p>CVE-2017-3167：第三方模块在身份验证阶段使用ap_get_basic_auth_pw()，会导致绕过身份验证要求。</p>
-<p>CVE-2017-3169：第三方模块在HTTP请求HTTPS端口时，若调用ap_hook_process_connection()，则mod_ssl会间接引用空指针。</p>
-<p>CVE-2017-7659：处理构造的HTTP/2请求时，会造成mod_http2间接引用空指针，或造成服务器进程崩溃。</p>
-<p>CVE-2017-7668：在令牌列表解析中存在bug，可使ap_find_token()搜索输入字符串之外的内容，通过构造的请求头序列，攻击者可造成段故障，或强制ap_find_token()返回错误值。</p>
-<p>CVE-2017-7679：恶意攻击者发送恶意Content-Type响应头时，mod_mime会造成缓冲区越界读。</p>
-<p>漏洞利用条件和方式:</p>
-<p>远程利用</p>
-<p>漏洞影响范围:</p>
-<p>CVE-2017-3167, CVE-2017-3169, CVE-2017-7679:Apache HTTP Web Server 2.2.0 到2.2.32版本</p>
-<p>CVE-2017-7668:Apache HTTP Web Server 2.2.32</p>
-<p>CVE-2017-3167, CVE-2017-3169, CVE-2017-7679:Apache HTTP Web Server 2.4.0到2.4.25版本</p>
-<p>CVE-2017-7659, CVE-2017-7668:Apache HTTP Web Server 2.4.25</p>
-<p>漏洞检测:</p>
-<p>自查Apache http版本是否在受影响范围内</p>
-<p>apachectl -v 或者 httpd -v</p>
-<p>漏洞修复建议(或缓解措施):</p>
-<p>Apache httpd 2.4版本用户升级到2.4.26</p>
-<p>Apache httpd httpd 2.2版本用户升级到2.2.33-dev</p>
-</p>
-      <div class="post-button"><a class="btn" href="/2021/04/07/Apache%E7%B3%BB%E5%88%97%E6%BC%8F%E6%B4%9E/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>Read More</a></div>
-    </div>
-  </div>
-  <div class="lx-entry padding">
-    <div>
       <h2 class="title"><a href="/2021/04/07/Apache%20%E7%B3%BB%E5%88%97%E6%BC%8F%E6%B4%9E/"></a></h2>
       <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2021-04-07</span>
       <p><h1 id="Apache-系列漏洞"><a href="#Apache-系列漏洞" class="headerlink" title="Apache 系列漏洞"></a>Apache 系列漏洞</h1><p>2017年6月19日，Apache httpd被曝出多个安全漏洞，漏洞编号为:CVE-2017-3167, CVE-2017-3169, CVE-2017-7659, CVE-2017-7668, CVE-2017-7679，安全风险较高。请及时通知各系统管理员查看相关漏洞情况，并进行相关处理。具体如下：</p>
